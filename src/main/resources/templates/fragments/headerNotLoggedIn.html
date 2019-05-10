@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="header">
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            height: 100px;
+            overflow: hidden;
+            background: #00232e;
+        }
+
+        #logo{
+            height: 100px;
+            width: 100px;
+            vertical-align: middle;
+        }
+
+        .topnav ul{
+            display: inline;
+            list-style: none;
+
+        }
+
+        .topnav li{
+            display: inline;
+            curser: pointer;
+            border: 1px;
+            padding: 20px;
+            margin-left: -5px;
+
+        }
+
+        .topnav li:hover{
+            background: #020202;
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="/">
+        <!--http://www.clker.com/clipart-home-logo.html-->
+        <img id="logo" src="/home-logo-md.png" alt='Home Logo clip art'></a>
+    <ul>
+        <li><a href="/register">register</a></li>
+        <li><a href="/login">login</a></li>
+
+    </ul>
+</div>
+</body>
+</div>
+</html>

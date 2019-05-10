@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../style.css}">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #f1f1f1;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <div th:insert="fragments/header :: header"></div>
+</header>
+
+<form th:action="@{/setAdmin}" method="post" id="setAdmin">
+    <br>
+    <label>Which user do you want to give admin</label>
+    <input type="text" name="Username" placeholder="Username"  >
+    <br>
+    <input type="submit" value="give admin">
+</form>
+<div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>

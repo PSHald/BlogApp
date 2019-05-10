@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../style.css}">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #f1f1f1;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            padding-left: 5ch;
+            width: 75%;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div th:insert="fragments/header :: header"></div>
+</header>
+
+
+<div class="row">
+    <div class="leftcolumn">
+        <tr th:each="post: ${posts}">
+            <div class="card">
+                <h2><a th:text="${post.title}" th:href="@{/blog/post/{id}/(id=${post.post_id})}"><td th:text="${post.title}))">title</td></a></h2>
+                <br>
+                <text>Written by - <td th:text="${post.author}">author</td></text>
+                <td th:text="${post.body}">body</td>
+            </div>
+        </tr>
+    </div>
+
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>

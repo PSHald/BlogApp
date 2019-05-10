@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../style.css}">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #f1f1f1;
+        }
+
+        .leftcolumn {
+            float: left;
+            padding-left: 5ch;
+            width: 70%;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div th:insert="fragments/header :: header"></div>
+</header>
+
+
+<div class="row">
+    <div class="leftcolumn">
+            <div class="card">
+                <th:block>
+                    <span th:if="${user.IsAdmin}"><a role="button" th:href="'/blog/post/' + ${post.getPost_id()} + '/updatePost/'">edit post</a></span>
+                    <span th:if="${user.isAdmin}"><a type="button" th:href="'/blog/post/' + ${post.getPost_id()} + '/deletePost/'">delete post</a></span>
+                </th:block>
+
+                <h2><td th:text="${post.title}">title</td></h2>
+                <br>
+                <text>Written by - <td th:text="${post.author}">author</td></text>
+                <br>
+                <p class="body" th:utext="${post.body}">body</p>
+            </div>
+
+    </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>

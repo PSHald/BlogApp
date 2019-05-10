@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{../style.css}">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 0px;
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div th:insert="fragments/headerNotLoggedIn :: header"></div>
+</header>
+
+<section>
+
+    <form method="post" th:action="@{/register}" id="create_user">
+
+        <label> Username: </label>
+        <input type="text" name="Username" placeholder="Username" id="username" th:field="${user.username}">
+        <br>
+
+        <label> Password: </label>
+        <input type="password" name="Password" placeholder="Password" id="password" th:field="${user.password}">
+        <br>
+
+        <label> Full name: </label>
+        <input type="text" name="Full name" placeholder="Full name" id="fullName" th:field="${user.fullName}">
+        <br>
+
+        <input type="submit" value="Create user" >
+
+    </form>
+</section>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>
